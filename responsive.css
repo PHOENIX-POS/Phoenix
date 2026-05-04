@@ -1,0 +1,269 @@
+/**
+ * Phoenix POS — Responsive Stylesheet
+ * تغطي: موبايل / تابلت / ديسكتوب
+ * أضف في كل صفحة: <link rel="stylesheet" href="responsive.css">
+ */
+
+/* =============================================
+   BASE — تنسيقات أساسية لكل الأجهزة
+   ============================================= */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { font-size: 16px; }
+
+body {
+  -webkit-text-size-adjust: 100%;
+  overflow-x: hidden;
+}
+
+img, video, iframe {
+  max-width: 100%;
+  height: auto;
+}
+
+/* =============================================
+   DESKTOP — شاشات كبيرة (1200px+)
+   ============================================= */
+@media (min-width: 1200px) {
+  .main-content {
+    padding: 36px 48px;
+    padding-right: 80px;
+  }
+
+  .sales-grid {
+    grid-template-columns: repeat(4, 1fr) !important;
+  }
+
+  .form-grid {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+
+  .setup-box, .login-box {
+    max-width: 500px;
+    padding: 48px;
+  }
+
+  .sidebar {
+    width: 280px !important;
+  }
+
+  .main-content.sidebar-open {
+    margin-right: 280px !important;
+  }
+
+  /* جداول التقارير */
+  table {
+    font-size: 0.95em;
+  }
+
+  /* dev panel */
+  #devStoresGrid {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+}
+
+/* =============================================
+   TABLET — تابلت (768px – 1199px)
+   ============================================= */
+@media (min-width: 768px) and (max-width: 1199px) {
+  .main-content {
+    padding: 24px 28px;
+    padding-right: 72px;
+  }
+
+  .sales-grid {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+
+  .form-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  .setup-box, .login-box {
+    max-width: 460px;
+    padding: 36px 28px;
+  }
+
+  .sidebar {
+    width: 260px !important;
+  }
+
+  .main-content.sidebar-open {
+    margin-right: 260px !important;
+  }
+
+  /* dev panel */
+  #devStoresGrid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  /* جداول */
+  table {
+    font-size: 0.88em;
+  }
+}
+
+/* =============================================
+   MOBILE — موبايل (أقل من 768px)
+   ============================================= */
+@media (max-width: 767px) {
+  html { font-size: 14px; }
+
+  /* محتوى رئيسي */
+  .main-content {
+    padding: 16px !important;
+    padding-top: 70px !important;
+    padding-right: 16px !important;
+    margin-right: 0 !important;
+  }
+
+  /* الشبكات */
+  .sales-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 10px !important;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* صناديق الإعداد والدخول */
+  .setup-box, .login-box {
+    padding: 24px 16px !important;
+    border-radius: 16px !important;
+    margin: 0 8px;
+  }
+
+  /* الـ Sidebar — يأخذ العرض كامل على الموبايل */
+  .sidebar {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .main-content.sidebar-open {
+    margin-right: 0 !important;
+  }
+
+  /* أزرار */
+  .btn { font-size: 0.85em !important; padding: 9px 14px !important; }
+  .btn-full { padding: 13px !important; font-size: 0.95em !important; }
+  .login-btn { padding: 13px !important; font-size: 0.95em !important; }
+
+  /* menu toggle */
+  .menu-toggle {
+    width: 44px !important;
+    height: 44px !important;
+    top: 14px !important;
+    right: 14px !important;
+  }
+
+  /* جداول — تصغير على الموبايل */
+  table {
+    font-size: 0.75em !important;
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  th, td {
+    padding: 8px 10px !important;
+  }
+
+  /* dev panel */
+  #devStoresGrid {
+    grid-template-columns: 1fr !important;
+  }
+
+  #devDetailsModal > div,
+  #devEditModal > div {
+    max-width: 100% !important;
+    border-radius: 16px !important;
+    padding: 20px 16px !important;
+  }
+
+  /* modals */
+  [id$="Modal"] > div {
+    max-width: 100% !important;
+    margin: 8px !important;
+    max-height: 94vh !important;
+  }
+
+  /* بطاقات المنتجات */
+  .product-card {
+    padding: 12px !important;
+  }
+
+  /* stats cards */
+  .stat-card {
+    padding: 14px !important;
+  }
+
+  /* إخفاء الأعمدة الزيادة في الجداول */
+  .hide-mobile { display: none !important; }
+
+  /* تكبير الـ inputs عشان ميكبرش الصفحة على iOS */
+  input, select, textarea {
+    font-size: 16px !important;
+  }
+
+  /* setup screen */
+  .setup-screen, .login-screen {
+    padding: 16px !important;
+    padding-top: 40px !important;
+  }
+
+  /* setup tabs */
+  .setup-tabs, .login-tabs {
+    gap: 6px !important;
+  }
+
+  .setup-tab, .login-tab {
+    padding: 10px 18px !important;
+    font-size: 0.88em !important;
+  }
+}
+
+/* =============================================
+   MOBILE صغير — (أقل من 380px)
+   ============================================= */
+@media (max-width: 380px) {
+  html { font-size: 13px; }
+
+  .sales-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .setup-tab, .login-tab {
+    padding: 8px 12px !important;
+    font-size: 0.82em !important;
+  }
+
+  .setup-box, .login-box {
+    padding: 20px 14px !important;
+  }
+}
+
+/* =============================================
+   PRINT — طباعة
+   ============================================= */
+@media print {
+  .sidebar,
+  .menu-toggle,
+  .btn-group,
+  .btn:not(.btn-print),
+  nav,
+  [id$="Modal"] { display: none !important; }
+
+  .main-content {
+    margin-right: 0 !important;
+    padding: 0 !important;
+  }
+
+  table {
+    font-size: 0.85em;
+    white-space: normal;
+  }
+
+  body { background: white !important; }
+}
