@@ -1,0 +1,242 @@
+/**
+ * Phoenix POS — Responsive CSS v3
+ * ملف واحد يظبط كل المشاكل على الموبايل
+ */
+
+/* ===================================================
+   BASE — أساسيات تمنع الـ overflow في كل الصفحات
+   =================================================== */
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  -webkit-text-size-adjust: 100%;
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+body {
+  overflow-x: hidden !important;
+  max-width: 100vw !important;
+  position: relative;
+}
+
+img, video, iframe, embed, object {
+  max-width: 100%;
+  height: auto;
+}
+
+input, select, textarea {
+  font-size: max(16px, 1em) !important;
+}
+
+/* ===================================================
+   DESKTOP 1024px+
+   =================================================== */
+@media (min-width: 1024px) {
+  .main-content           { padding: 32px 40px 32px 80px !important; }
+  .sales-grid             { grid-template-columns: 1fr 1fr !important; gap: 24px !important; }
+  .grid-2                 { grid-template-columns: repeat(4, 1fr) !important; }
+  .form-grid              { grid-template-columns: repeat(3, 1fr) !important; }
+  .sidebar                { width: 300px !important; max-width: 300px !important; }
+  .main-content.sidebar-open { margin-right: 300px !important; }
+  .setup-box, .login-box  { max-width: 480px !important; padding: 48px !important; }
+  #devStoresGrid          { grid-template-columns: repeat(3, 1fr) !important; }
+}
+
+/* ===================================================
+   TABLET 768–1023px
+   =================================================== */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .main-content           { padding: 24px 24px 24px 72px !important; }
+  .sales-grid             { grid-template-columns: 1fr 1fr !important; gap: 16px !important; }
+  .grid-2                 { grid-template-columns: repeat(2, 1fr) !important; }
+  .form-grid              { grid-template-columns: repeat(2, 1fr) !important; }
+  .sidebar                { width: 260px !important; max-width: 260px !important; }
+  .main-content.sidebar-open { margin-right: 260px !important; }
+  .setup-box, .login-box  { max-width: 460px !important; padding: 36px 28px !important; }
+  #devStoresGrid          { grid-template-columns: repeat(2, 1fr) !important; }
+  .page-title             { font-size: 1.6em !important; }
+  table                   { font-size: 0.85em !important; }
+}
+
+/* ===================================================
+   MOBILE — أقل من 768px
+   =================================================== */
+@media (max-width: 767px) {
+
+  /* Layout أساسي */
+  .main-content {
+    padding: 16px !important;
+    padding-top: 72px !important;
+    padding-bottom: 20px !important;
+    margin-right: 0 !important;
+    width: 100% !important;
+    max-width: 100vw !important;
+    overflow-x: hidden !important;
+  }
+  .main-content.sidebar-open { margin-right: 0 !important; }
+
+  /* Sidebar */
+  .sidebar {
+    width: 82vw !important;
+    max-width: 300px !important;
+  }
+
+  /* Menu toggle */
+  .menu-toggle {
+    width: 44px !important;
+    height: 44px !important;
+    top: 14px !important;
+    right: 14px !important;
+    font-size: 1.2em !important;
+  }
+
+  /* عناوين */
+  .page-title    { font-size: 1.4em !important; }
+  .page-header   { margin-bottom: 16px !important; }
+  .page-subtitle { font-size: 0.82em !important; }
+
+  /* Grids */
+  .sales-grid { grid-template-columns: 1fr !important; gap: 14px !important; }
+  .grid-2     { grid-template-columns: repeat(2, 1fr) !important; gap: 10px !important; }
+  .form-grid  { grid-template-columns: 1fr !important; gap: 12px !important; }
+
+  /* Panels & Cards */
+  .panel       { padding: 14px !important; border-radius: 14px !important; margin-bottom: 14px !important; }
+  .panel-title { font-size: 0.97em !important; margin-bottom: 14px !important; }
+  .stat-card   { padding: 12px 10px !important; border-radius: 12px !important; }
+  .stat-icon   { font-size: 1.6em !important; }
+  .stat-value  { font-size: 1.35em !important; }
+  .stat-label  { font-size: 0.72em !important; }
+
+  /* Tables */
+  .table-wrapper { overflow-x: auto !important; -webkit-overflow-scrolling: touch !important; }
+  table          { font-size: 0.75em !important; min-width: 480px !important; }
+  thead th, tbody td { padding: 9px 10px !important; white-space: nowrap !important; }
+
+  /* Buttons */
+  .btn           { font-size: 0.85em !important; padding: 9px 14px !important; }
+  .btn-full, .login-btn { padding: 13px !important; font-size: 0.95em !important; border-radius: 12px !important; }
+  .btn-group     { gap: 8px !important; flex-wrap: wrap !important; }
+
+  /* Modals — كل الـ modals تبقى في العرض */
+  [id$="Modal"] > div {
+    max-width: calc(100vw - 24px) !important;
+    width: calc(100vw - 24px) !important;
+    border-radius: 20px !important;
+    max-height: 90dvh !important;
+  }
+
+  /* Modal الدليل في index.html */
+  #userGuideModal > div {
+    width: calc(100vw - 24px) !important;
+    max-width: calc(100vw - 24px) !important;
+    max-height: 90dvh !important;
+    border-radius: 20px !important;
+    overflow: hidden !important;
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  /* محتوى الـ modal يتصرول */
+  #userGuideModal > div > div:last-child {
+    padding: 16px !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    flex: 1 !important;
+  }
+
+  /* Login & Setup */
+  .setup-screen, .login-screen {
+    padding: 14px !important;
+    padding-top: 28px !important;
+    gap: 0 !important;
+  }
+  .setup-box, .login-box {
+    padding: 22px 16px !important;
+    border-radius: 16px !important;
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+  .setup-tabs, .login-tabs  { gap: 6px !important; }
+  .setup-tab, .login-tab    { padding: 10px 12px !important; font-size: 0.82em !important; }
+  .setup-header h1, .login-header h1 { font-size: 1.4em !important; }
+  .setup-logo, .login-logo  { font-size: 2.4em !important; }
+
+  /* Sidebar nav */
+  .sidebar-nav a { padding: 14px 18px !important; font-size: 1em !important; }
+
+  /* Toast — يتمركز صح مع RTL */
+  .toast, #toast {
+    left: 12px !important;
+    right: 12px !important;
+    width: auto !important;
+    max-width: calc(100vw - 24px) !important;
+    transform: translateY(120px) !important;
+    text-align: center !important;
+    bottom: 20px !important;
+    font-size: 0.88em !important;
+  }
+  .toast.show, #toast.show {
+    transform: translateY(0) !important;
+  }
+
+  /* ====================================================
+     إصلاح developer.html: الـ grid بـ 380px الثابت
+     يتحول لـ column على الموبايل
+     ==================================================== */
+  [style*="grid-template-columns:380px"],
+  [style*="grid-template-columns: 380px"] {
+    display: flex !important;
+    flex-direction: column !important;
+    overflow: visible !important;
+    padding: 16px !important;
+    width: 100% !important;
+    max-width: 100vw !important;
+  }
+
+  /* إصلاح الـ 1fr 1fr grid في developer.html */
+  [style*="grid-template-columns:1fr 1fr"],
+  [style*="grid-template-columns: 1fr 1fr"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* header الـ developer — عناصره تتنظم */
+  [style*="justify-content:space-between"] {
+    flex-wrap: wrap !important;
+    gap: 10px !important;
+  }
+
+  /* كروت الإحصاء في developer */
+  #devStoresGrid { grid-template-columns: 1fr !important; }
+
+  /* misc */
+  .search-results { max-height: 220px !important; }
+  .price-block    { padding: 12px 16px !important; }
+  .price-amount   { font-size: 1.5em !important; }
+}
+
+/* ===================================================
+   MOBILE صغير جداً — أقل من 380px
+   =================================================== */
+@media (max-width: 380px) {
+  .main-content  { padding: 12px !important; padding-top: 64px !important; }
+  .grid-2        { grid-template-columns: 1fr !important; }
+  .setup-tab, .login-tab { padding: 8px 10px !important; font-size: 0.78em !important; }
+  .setup-box, .login-box { padding: 18px 12px !important; }
+  .page-title    { font-size: 1.2em !important; }
+  .stat-value    { font-size: 1.3em !important; }
+  [style*="grid-template-columns:380px"],
+  [style*="grid-template-columns: 380px"] { padding: 12px !important; }
+}
+
+/* ===================================================
+   PRINT
+   =================================================== */
+@media print {
+  .sidebar, .menu-toggle, .btn-group, .toast, #toast,
+  [id$="Modal"] { display: none !important; }
+  .main-content { margin-right: 0 !important; padding: 0 !important; }
+  table         { min-width: unset !important; font-size: 0.85em !important; }
+  body          { background: white !important; }
+}
